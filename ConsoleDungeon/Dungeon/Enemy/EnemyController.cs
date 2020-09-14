@@ -13,6 +13,17 @@ namespace ConsoleDungeon.Dungeon.Enemy
         public EnemyController(Point coords)
         {
             Character = new Character(coords);
+            Init();
+        }
+
+        public EnemyController(Character enemy)
+        {
+            Character = enemy;
+            Init();
+        }
+
+        private void Init()
+        {
             CountMoves = 0;
             Dead = false;
         }

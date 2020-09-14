@@ -105,10 +105,12 @@ namespace ConsoleDungeon.Dungeon
         {
             var rooms = PersistenceController.Instance.Load<List<Room>>();
             var player = PersistenceController.Instance.Load<Player>();
-            if(rooms != null && player != null)
+            var enemy = PersistenceController.Instance.Load<Character>();
+            if(rooms != null && player != null && enemy != null)
             {
                 MapController = new MapController(rooms);
                 HeroController = new HeroController(player);
+                EnemyController = new EnemyController(enemy);
                 Console.WriteLine("Save loaded successfully.");
                 MapController.Print(HeroController.Player.Coordinate, EnemyController.Character.Coordinate);
             }
